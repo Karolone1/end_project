@@ -1,15 +1,8 @@
-def flatten(nested_list):
-    flattened_list = []
-
-    for element in nested_list:
-        if type(element) == list:
-            flattened_list.extend(flatten(element))
+def flatten(lst):
+    result = []
+    for item in lst:
+        if isinstance(item, list):
+            result.extend(flatten(item))
         else:
-            flattened_list.append(element)
-
-    return flattened_list
-
-nested_list = [[1, 2, [3]], 4]
-
-flattened_list = flatten(nested_list)
-print(flattened_list)
+            result.append(item)
+    return result
